@@ -61,3 +61,4 @@ function timer() {
 function cleanContent(input) {
     return input >= 10 ? input : `0${input}`
 }
+
