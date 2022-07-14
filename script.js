@@ -37,6 +37,7 @@ function timerReset() {
     minuteSlot.innerText = '00'; 
     secondSlot.innerText = '00'; 
     millisecondSlot.innerText = '00';
+    destroyTrees(); 
 }
 
 function timer() {
@@ -107,4 +108,13 @@ function selectRandomBox() {
     openGround.splice(openGround.indexOf(cube), 1)
     console.log(openGround)   
     return cube; 
+}
+
+function destroyTrees() {
+    let allGround = document.getElementsByClassName("forest-cube"); 
+    for (let cube of allGround) {
+        while (cube.firstChild) {
+            cube.removeChild(cube.lastChild); 
+        }
+    }
 }
