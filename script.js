@@ -7,7 +7,6 @@ let milliseconds = 0;
 let hourSlot = document.getElementById('hour');
 let minuteSlot = document.getElementById('minute');
 let secondSlot = document.getElementById('second');
-// let millisecondSlot = document.getElementById('millisecond');
 
 let start = document.getElementById('start'); 
 let pause = document.getElementById('pause'); 
@@ -24,7 +23,6 @@ function timerStart() {
 }
 
 function timerPause() {
-    console.log("Pausing"); 
     clearInterval(addition); 
 }
 
@@ -36,7 +34,6 @@ function timerReset() {
     hourSlot.innerText = '00'; 
     minuteSlot.innerText = '00'; 
     secondSlot.innerText = '00'; 
-    // millisecondSlot.innerText = '00';
     destroyTrees(); 
 }
 
@@ -44,13 +41,14 @@ function timer() {
     if ((milliseconds += 10) == 1000) {
         milliseconds = 0; 
         seconds++; 
-        if (seconds % 10 == 0) {
-            growTree(); 
-        }
     }
     if (seconds == 60) {
         seconds = 0; 
+        growTree(); 
         minutes++; 
+        // if (minutes % 10 == 0) {
+        //     growTree(); 
+        // }
     }
     if (minutes == 60) {
         minutes = 0; 
@@ -59,7 +57,6 @@ function timer() {
     hourSlot.innerText = cleanContent(hours); 
     minuteSlot.innerHTML = cleanContent(minutes); 
     secondSlot.innerHTML = cleanContent(seconds); 
-    // millisecondSlot.innerHTML = cleanContent(Math.floor(milliseconds / 10)); 
 }
 
 function cleanContent(input) {
@@ -88,7 +85,7 @@ let openGround = [
 ]
 
 function growTree() {
-    console.log(`Forest open ground squares: `, openGround.length)
+    // Create tree icon element and add it to a random available cube on the DOM 
     if (openGround.length > 0) {
         let newTree = document.createElement("i"); 
         newTree.classList.add('fa-solid'); 
@@ -102,6 +99,8 @@ function growTree() {
 }
 
 function selectRandomBox() {
+    // Find an unfilled element on the forest grid 
+    // Returns: HTML ID of available elements 
     let cube;
     if (openGround.length > 1) {
         while (!openGround.includes(cube)) {
@@ -111,13 +110,12 @@ function selectRandomBox() {
     } else {
         cube = openGround[0]
     }
-    console.log(cube); 
     openGround.splice(openGround.indexOf(cube), 1)
-    console.log(openGround)   
     return cube; 
 }
 
 function destroyTrees() {
+    // Finds all elements inside forest grid cubes and removes them 
     let allGround = document.getElementsByClassName("forest-cube"); 
     for (let cube of allGround) {
         while (cube.firstChild) {

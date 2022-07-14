@@ -6,13 +6,34 @@ body {
     color: #483D3F; 
 }
 
-#forest {
-    /* height: 250px; */
-    /* width: 100%; */
+/* =========
+
+HEADER
+
+=========== */
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.app-header h1 {
+    font-size: 2.5em;
+    font-style: bold;
+    font-weight: 900;
+}
+
+/* =========
+
+CUBE GRID
+
+=========== */
 
 .forest-grid {
     width: 90vw;
+    max-width: 800px; 
     margin: auto;  
     display: grid; 
     grid-template-columns: repeat(4, 1fr);
@@ -46,7 +67,7 @@ TIMER LAYOUT
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
-    margin-top: 2em;
+    /* margin-top: 2em; */
 }
 
 #timer {
@@ -72,4 +93,21 @@ BUTTON STYLING
 #timer-controls button:hover {
     cursor: pointer;
     background-color: #57886C;
+}
+
+/* =========
+
+DESKTOP VIEW STYLING 
+
+=========== */
+
+@media screen and (min-width: 800px) {
+
+    #forest {
+        margin: auto; 
+    }
+
+    .forest-grid {
+        grid-auto-rows: minmax(13vh, auto);
+    }
 }
