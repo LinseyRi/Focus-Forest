@@ -1,0 +1,15 @@
+#forest {
+    height: 250px;
+    width: 250px;
+}
+
+.forest-grid {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
+    grid-auto-rows: minmax(75px, auto);
+}
+
+.forest-cube {
+    border: 1px solid black; 
+}
