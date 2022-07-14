@@ -1,17 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #CFE795;
+    color: #483D3F; 
+}
+
 #forest {
-    height: 250px;
-    width: 250px;
+    /* height: 250px; */
+    /* width: 100%; */
 }
 
 .forest-grid {
+    width: 90vw;
+    margin: auto;  
     display: grid; 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px; 
-    grid-auto-rows: minmax(75px, auto);
+    grid-auto-rows: minmax(10vh, auto);
 }
 
 .forest-cube {
-    border: 1px solid black; 
+    border: 1px dotted white; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,4 +29,47 @@
 
 .forest-cube i {
     font-size: 3.5em;
+    color: #57886C;
+}
+
+/* =========
+
+TIMER LAYOUT 
+
+=========== */
+
+#timer-controls {
+    width: 90%; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+#timer {
+    font-size: 3em;
+}
+
+/* =========
+
+BUTTON STYLING
+
+=========== */
+
+#timer-controls button {
+    padding: 0.5em; 
+    margin: 0.5em; 
+    min-width: 5em;
+    background-color: #483D3F;
+    border: 1px solid white; 
+    border-radius: 10px;
+    color: white;     
+}
+
+#timer-controls button:hover {
+    cursor: pointer;
+    background-color: #57886C;
 }

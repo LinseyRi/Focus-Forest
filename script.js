@@ -7,7 +7,7 @@ let milliseconds = 0;
 let hourSlot = document.getElementById('hour');
 let minuteSlot = document.getElementById('minute');
 let secondSlot = document.getElementById('second');
-let millisecondSlot = document.getElementById('millisecond');
+// let millisecondSlot = document.getElementById('millisecond');
 
 let start = document.getElementById('start'); 
 let pause = document.getElementById('pause'); 
@@ -36,7 +36,7 @@ function timerReset() {
     hourSlot.innerText = '00'; 
     minuteSlot.innerText = '00'; 
     secondSlot.innerText = '00'; 
-    millisecondSlot.innerText = '00';
+    // millisecondSlot.innerText = '00';
     destroyTrees(); 
 }
 
@@ -59,7 +59,7 @@ function timer() {
     hourSlot.innerText = cleanContent(hours); 
     minuteSlot.innerHTML = cleanContent(minutes); 
     secondSlot.innerHTML = cleanContent(seconds); 
-    millisecondSlot.innerHTML = cleanContent(milliseconds); 
+    // millisecondSlot.innerHTML = cleanContent(Math.floor(milliseconds / 10)); 
 }
 
 function cleanContent(input) {
@@ -78,6 +78,13 @@ let openGround = [
     "cube-7",
     "cube-8",
     "cube-9",
+    "cube-10",
+    "cube-11",
+    "cube-12",
+    "cube-13",
+    "cube-14",
+    "cube-15",
+    "cube-16",
 ]
 
 function growTree() {
@@ -98,7 +105,7 @@ function selectRandomBox() {
     let cube;
     if (openGround.length > 1) {
         while (!openGround.includes(cube)) {
-            let r = Math.floor(Math.random() * 9)
+            let r = Math.floor(Math.random() * 16)
             cube = `cube-${r}`
         }
     } else {
