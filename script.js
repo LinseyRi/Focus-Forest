@@ -43,6 +43,9 @@ function timer() {
     if ((milliseconds += 10) == 1000) {
         milliseconds = 0; 
         seconds++; 
+        if (seconds % 10 == 0) {
+            growTree(); 
+        }
     }
     if (seconds == 60) {
         seconds = 0; 
@@ -62,3 +65,46 @@ function cleanContent(input) {
     return input >= 10 ? input : `0${input}`
 }
 
+// generate tree icons 
+
+let openGround = [
+    "cube-1", 
+    "cube-2",
+    "cube-3",
+    "cube-4",
+    "cube-5",
+    "cube-6",
+    "cube-7",
+    "cube-8",
+    "cube-9",
+]
+
+function growTree() {
+    console.log(`Forest open ground squares: `, openGround.length)
+    if (openGround.length > 0) {
+        let newTree = document.createElement("i"); 
+        newTree.classList.add('fa-solid'); 
+        newTree.classList.add('fa-tree'); 
+        let cubeId = selectRandomBox();
+        let parent = document.getElementById(cubeId)
+        parent.appendChild(newTree); 
+    } else {
+        console.log("Forest Grown"); 
+    }
+}
+
+function selectRandomBox() {
+    let cube;
+    if (openGround.length > 1) {
+        while (!openGround.includes(cube)) {
+            let r = Math.floor(Math.random() * 9)
+            cube = `cube-${r}`
+        }
+    } else {
+        cube = openGround[0]
+    }
+    console.log(cube); 
+    openGround.splice(openGround.indexOf(cube), 1)
+    console.log(openGround)   
+    return cube; 
+}
